@@ -19,6 +19,7 @@ int main(){
         for (int j=0;j<3;j++) mA[i][j]+=mB[i][j];
      }
 
+    
 
     cout<<"Wynik dodawania macierzy:"<<endl;
     for (int i=0;i<2;i++){
