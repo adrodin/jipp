@@ -13,7 +13,7 @@ void swapIfSmaller(int *a, int *b) {
 
 int main()
 {
-    
+
     int a=10,b=11;
     cout<<a<<" "<<b<<endl;
     swapIfSmaller(&a,&b);
@@ -24,5 +24,5 @@ int main()
     cout<<a<<" "<<b<<endl;
     swapIfSmaller(&a,&b);
     cout<<a<<" "<<b;
-    
+
 }
