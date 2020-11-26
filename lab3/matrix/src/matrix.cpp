@@ -62,13 +62,20 @@ Matrix::Matrix(std::string filePath) {
     }
 }
 
+Matrix::~Matrix() {
+    for (int i = 0; i < this->cols(); i++)
+        delete[] matrixArray[i];
+
+    delete[] matrixArray;
+}
+
 void Matrix::set(int n, int m, double value) {
     this->matrixArray[n][m] = value;
 }
 double Matrix::get(int n, int m) {
     return this->matrixArray[n][m];
 }
-Matrix Matrix::add(Matrix m2) {
+Matrix Matrix::add(Matrix &m2) {
     if (this->cols() != m2.cols() || this->rows() != m2.cols()) {
         std::cout << "Nie da sie dodac" << std::endl;
         return 0;
@@ -86,7 +93,7 @@ Matrix Matrix::add(Matrix m2) {
 }
 
 
-Matrix Matrix::substract(Matrix m2) {
+Matrix Matrix::substract(Matrix &m2) {
     if (this->cols() != m2.cols() || this->rows() != m2.cols()) {
         std::cout << "Nie da sie odjac" << std::endl;
         return 0;
@@ -103,7 +110,7 @@ Matrix Matrix::substract(Matrix m2) {
     return newMatrix;
 }
 
-Matrix Matrix::multiply(Matrix m2) {
+Matrix Matrix::multiply(Matrix &m2) {
     if (this->rows() != m2.cols()) {
         std::cout << "Nie da sie mnozyc" << std::endl;
         return 0;
